@@ -80,36 +80,44 @@
 
   /* --------------------------------------- */
 
+
+  /*Боковая панель  */
 .aside {
   height: 100%;
+  display: flex;
+  flex-direction: row;
+  width: 20%;
+  border: 1px solid black;
 }
 
+/* Выбор меню боковой панели */
 .aside__panel {
   background: #fa6767;
-  width: 10%;
+  border: 1px solid black;
+  width: 25%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
  }
 
-.aside__header {
+.aside__panel__header {
   padding: 5%;
   border: 1px solid black;
   max-height: 15%;
 }
 
 .company__logo {
-  width: 100%;
+  width: 70%;
 }
 
-.aside__header__btn {
+.aside__panel__header__btn {
   background: #fa6767;
   border-radius: 99%;
   /* сделать кнопку круглой, сейчас можно нажать за пределами изображения */
 }
 
-.aside__main {
+.aside__panel__main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -117,16 +125,16 @@
   padding: 5%;
 }
 
-.aside__main__btn:hover,
-.aside__footer__btn:hover {
+.aside__panel__main__btn:hover,
+.aside__panel__footer__btn:hover {
   background: #c55151
 }
 
-.aside__main__btn {
+.aside__panel__main__btn {
   min-height: 10%;
 }
 
-.aside__footer {
+.aside__panel__footer {
   display: flex;
   justify-content: center;
   max-height: 15%;
@@ -134,3 +142,33 @@
   padding: 5%;
   border: 1px solid black;
 }
+
+/* Подменю боковой панели */
+.aside__main {
+  display: flex;
+  justify-content: center;
+  height: 30%;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  padding: 5%;
+}
+
+.project__list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 5%;
+}
+
+.project {
+  background: blue;
+  border-radius: 20%;
+  display: flex;
+  justify-content: space-between;
+  }
