@@ -1,17 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Выбираем кнопки и блоки
+    
     const projectsBtn = document.querySelector('.projects__btn');
-    const asideMain = document.querySelector('#aside__main');
+    const asideMenu = document.querySelector('#aside__menu');
 
-    // Добавляем обработчик события
+    // Скрытие и появление подменю
     projectsBtn.addEventListener('click', function() {
-      if (asideMain.classList.contains('visibility__hidden')) {
-        asideMain.classList.remove('visibility__hidden')
-        asideMain.classList.add('visibility__visible')
+      if (asideMenu.classList.contains('visibility__hidden')) {
+        asideMenu.innerHTML = "<div class='projects'><h2>Projects</h2><div class='project__list'><div class='project project__1'><img src='#' alt='i' class='project__1__logo'>Default project<button class='project__menu__btn'>1</button></div></div></div>"
+        asideMenu.classList.remove('visibility__hidden')
+        asideMenu.classList.add('visibility__visible')
+        
       }
       else {
-        asideMain.classList.remove('visibility__visible')
-        asideMain.classList.add('visibility__hidden')
+        asideMenu.classList.remove('visibility__visible')
+        asideMenu.classList.add('visibility__hidden')
       }
     });
     
