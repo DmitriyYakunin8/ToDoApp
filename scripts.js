@@ -10,17 +10,18 @@ document.addEventListener('DOMContentLoaded', function() {
       if (elem.classList.contains('visibility__hidden')) {
         // asideMenu.innerHTML = "<div class='projects'><h2>Projects</h2><div class='project__list'><div class='project project__1'><img src='#' alt='i' class='project__1__logo'>Default project<button class='project__menu__btn'>1</button></div></div></div>"
         elem.classList.remove('visibility__hidden')
-        elem.classList.add('visibility__visible')
       }
       else {
-        elem.classList.remove('visibility__visible')
         elem.classList.add('visibility__hidden')
       }
     };
     
     projectsBtn.addEventListener('click', () => hideVisibleElements(asideMenu));
       
-    
+
+
+
+
 
 });
 

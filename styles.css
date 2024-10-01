@@ -80,7 +80,9 @@
 
   /* --------------------------------------- */
 
-
+#aside__menu.visibility__hidden {
+    display: none;
+}
   /*Боковая панель  */
 .aside {
   height: 100%;
@@ -171,10 +173,5 @@
   justify-content: space-between;
   }
 
-.visibility__hidden {
-    visibility: hidden;
-}
 
-.visibility__visible {
-    visibility: visible;
-}
+
