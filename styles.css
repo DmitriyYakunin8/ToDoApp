@@ -80,6 +80,10 @@
 
   /* --------------------------------------- */
 
+  .visibility__hidden {
+    display: none;
+  }
+
   /*Боковая панель  */
 .aside {
   height: 100%;
@@ -153,8 +157,9 @@
 .projects {
   display: flex;
   flex-direction: column;
-  width: 95%;
   padding: 5%;
+  min-height: 30%;
+  border: 1px solid black;
 }
 
 .project__list {
@@ -166,12 +171,47 @@
 
 .project {
   background: blue;
-  border-radius: 20%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  border-radius: 10%;
+
   }
 
-/* .visibility__hidden {
-  display: none;
-} */
+.project__logo {
+  padding: 5%;
+}
 
+.project__btn {
+  padding: 5%;
+  position: relative;
+
+
+}
+
+
+
+
+.team__members {
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+  min-height: 35%;
+  border: 1px solid black;
+}
+
+.total__hours {
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+  height: 25%;
+  border: 1px solid black;
+}
+
+.new__project {
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+  height: 10%;
+  border: 1px solid black;
+}

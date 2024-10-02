@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
       elem.classList.contains('visibility__hidden') ? elem.classList.remove('visibility__hidden') : elem.classList.add('visibility__hidden');
     };
 
-    projectsBtn.addEventListener('click', () => hideVisibleElements(asideMenu));
+    //projectsBtn.addEventListener('click', () => hideVisibleElements(asideMenu));
       
     // Добавление нового проекта
     let addNewProject = document.getElementById('add__new__project')

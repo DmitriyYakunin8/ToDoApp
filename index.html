@@ -46,15 +46,22 @@
             </div>
         </div>
         <!-- Выбор подменю боковой панели -->
-        <div class="aside__menu visibility__hidden">
+        <div class="aside__menu">
             <!-- Список проектов -->
             <div class="projects">
                 <h2>Projects</h2>
                 <div class="project__list">
-                    <div class="project project__1">
-                        <img src="#" alt="i" class="project__1__logo">
-                        Default project
-                        <button class="project__menu__btn">1</button>
+                    <div class="project" id="project__1">
+                        <div class="project__logo">
+                            <img src="#" alt="#" class="project__logo">
+                        </div>
+                        <p>New project</p>
+                        <div class="project__btn">
+                            <button id="project__options__btn">
+                                &#8942
+                            </button>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -70,9 +77,12 @@
                 </div>
              </div>
             <!-- Добавить новый проект -->
-            <button id="add__new__project">
-                + Add Project
-            </button>
+             <div class="new__project">
+                <button id="add__new__project">
+                    + Add Project
+                </button>
+             </div>
+           
         </div>
     </aside>
 
