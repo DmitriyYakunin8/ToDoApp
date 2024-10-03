@@ -172,24 +172,35 @@
 .project {
   background: blue;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  align-content: stretch;
   border-radius: 10%;
+  cursor: pointer;
+  width: 100%;
+}
 
-  }
-
-.project__logo {
+#project__logo {
   padding: 5%;
+  width: 90%;
+  border: 1px solid black;
+}
+
+.project__inList__name {
+  border: 1px solid black;
+
 }
 
 .project__btn {
-  padding: 5%;
-  position: relative;
+  padding: 7.5%;
+  width: 100%;
+  border: 1px solid black;
+ }
 
-
+#project__options__btn__img {
+  filter: invert(22%) sepia(69%) saturate(312%) hue-rotate(174deg) brightness(65%) contrast(97%);
+  width: 70%;
 }
-
-
 
 
 .team__members {
