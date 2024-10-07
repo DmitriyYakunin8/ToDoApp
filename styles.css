@@ -80,10 +80,7 @@
 
   /* --------------------------------------- */
 
-  .visibility__hidden {
-    display: none;
-  }
-
+ 
   /*Боковая панель  */
 .aside {
   height: 100%;
@@ -179,6 +176,7 @@
   cursor: pointer;
   height: 2.5em;
   width: 15em;
+  z-index: 0;
 }
 
 #project__logo {
@@ -199,10 +197,9 @@
   white-space: nowrap;
 }
 
-.project__btn {
+.project__options__btn {
   padding: 0.5em;
-  
- }
+}
 
 #project__options__btn__img {
   filter: brightness(100%);
@@ -210,6 +207,27 @@
   margin-right: 0.4em;
   margin-top: 0.1em;
 }
+
+.project__options {
+  position: relative;
+  border: 1px solid black;
+  left: 3.4em;
+  bottom: 1.3em;
+  width: 5.5em;
+  height: 3.8em;
+  z-index: 1;
+  border-radius: .3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+}
+
+.project__option {
+  margin: 0.1em;
+}
+
 
 
 .team__members {
@@ -234,4 +252,11 @@
   padding: 5%;
   height: 10%;
   border: 1px solid black;
+}
+
+
+/* Скрытие элементов, класс всегда должен быть в конце */
+.visibility__hidden {
+  display: none;
+  /* visibility: hidden; */
 }

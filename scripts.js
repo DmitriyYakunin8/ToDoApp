@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
       elem.classList.contains('visibility__hidden') ? elem.classList.remove('visibility__hidden') : elem.classList.add('visibility__hidden');
     };
 
-    //projectsBtn.addEventListener('click', () => hideVisibleElements(asideMenu));
+    projectsBtn.addEventListener('click', () => hideVisibleElements(asideMenu));
       
     // Добавление нового проекта
     let addNewProject = document.getElementById('add__new__project')
@@ -20,7 +20,11 @@ document.addEventListener('DOMContentLoaded', function() {
       project__list.innerHTML += ' <div class="project project__new"><img src="#" alt="i" class="project__1__logo">New project<button class="project__menu__btn">1</button></div>'
     })
     
+   const projectOptionsBtn = document.querySelectorAll('.project__options__btn')
 
+   function findCorrectProject(project) {   
+      let child = 
+   }
 
 });
 
