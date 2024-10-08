@@ -177,6 +177,7 @@
   height: 2.5em;
   width: 15em;
   z-index: 0;
+  margin-bottom: 0.2em;
 }
 
 #project__logo {
@@ -211,7 +212,7 @@
 .project__options {
   position: relative;
   border: 1px solid black;
-  left: 3.4em;
+  left: 8.1em;
   bottom: 1.3em;
   width: 5.5em;
   height: 3.8em;
@@ -226,6 +227,7 @@
 
 .project__option {
   margin: 0.1em;
+  cursor: pointer;
 }
 
 
