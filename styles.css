@@ -176,7 +176,7 @@
   cursor: pointer;
   height: 2.5em;
   width: 15em;
-  z-index: 0;
+  /* z-index: 0; */
   margin-bottom: 0.2em;
 }
 
@@ -200,6 +200,7 @@
 
 .project__options__btn {
   padding: 0.5em;
+  z-index: 1;
 }
 
 #project__options__btn__img {
@@ -210,14 +211,15 @@
 }
 
 .project__options {
-  position: relative;
-  border: 1px solid black;
-  left: 8.1em;
-  bottom: 1.3em;
+  position: absolute;
+  top: 100%; /* Начальная позиция - после родительского элемента */
+  left: 0;
+  transform: translateX(-50%); /* Центровка по горизонтали */
   width: 5.5em;
   height: 3.8em;
-  z-index: 1;
-  border-radius: .3em;
+  z-index: 999;
+  border: 1px solid black;
+  border-radius: 0.3em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
