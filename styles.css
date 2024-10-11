@@ -176,7 +176,6 @@
   cursor: pointer;
   height: 2.5em;
   width: 15em;
-  /* z-index: 0; */
   margin-bottom: 0.2em;
 }
 
@@ -212,9 +211,9 @@
 
 .project__options {
   position: absolute;
-  top: 100%; /* Начальная позиция - после родительского элемента */
-  left: 0;
-  transform: translateX(-50%); /* Центровка по горизонтали */
+  top: 0%; /* Начальная позиция - после родительского элемента */
+ 
+ 
   width: 5.5em;
   height: 3.8em;
   z-index: 999;
@@ -261,6 +260,6 @@
 
 /* Скрытие элементов, класс всегда должен быть в конце */
 .visibility__hidden {
-  display: none;
-  /* visibility: hidden; */
+  /* display: none; */
+  visibility: hidden;
 }
