@@ -177,6 +177,7 @@
   height: 2.5em;
   width: 15em;
   margin-bottom: 0.2em;
+  z-index: 998;
 }
 
 #project__logo {

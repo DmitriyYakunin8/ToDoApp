@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Функция для скрытия и появления элемента 
     //(ДОБАВИТЬ ОТРИСОВКУ HTML С ПОМОЩЬЮ 2 АРГУМЕНТА)
-
     const hideVisibleElements = (elem) => {
       elem.classList.contains('visibility__hidden') ? elem.classList.remove('visibility__hidden') : elem.classList.add('visibility__hidden');
     };
@@ -13,9 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     projectsBtn.addEventListener('click', () => hideVisibleElements(asideMenu));
 
     // НАСТРОЙКА ASIDE MENU
-      
     // Добавление проекта
-
     let projectIdsArray = [1];
 
     function addNewProjectFunc() {
@@ -41,24 +38,23 @@ document.addEventListener('DOMContentLoaded', function() {
                               </div>
                           </div>
                           <div class="visibility__hidden project__options">
-                              <div class="project__option remove__btn">Remove</div>
-                              <div class="project__option">Rename</div>
-                              <div class="project__option">Change logo</div>
+                            <div class="project__option remove__btn">Remove</div>
+                            <div class="project__option rename__btn">Rename</div>
+                            <div class="project__option change__logo__btn">Change logo</div>
                           </div>`
 
       // Обязательные функции для возможности управления вновь добавленными проектами
-
       projectsOptions()
       optionsPositioning()
-      removeProject()  
+      removeProject() 
+      renameProject()
       })
     }
 
     addNewProjectFunc()
     
     // Опции проекта
-    
-    function projectsOptions() {
+      function projectsOptions() {
       let optionsBtns = document.querySelectorAll('.project__options__btn')
 
       for(let i = 0; i < optionsBtns.length; i++) {
@@ -69,40 +65,27 @@ document.addEventListener('DOMContentLoaded', function() {
     projectsOptions();
 
     // Позиционирование опций относительно проекта
-
     function optionsPositioning() {
-      const projects = document.querySelectorAll('.project');
+      let projects = document.querySelectorAll('.project');
 
       projects.forEach((project) => {
           project.addEventListener('mouseenter', () => {
            let options = project.nextElementSibling
           
-            // options.style.left = project.getBoundingClientRect().left + options.getBoundingClientRect().width + 'px'
             options.style.top = project.getBoundingClientRect().top + options.getBoundingClientRect().height / 3 + 'px'
-
-            const valueInPx = parseFloat(window.getComputedStyle(options).getPropertyValue('left'));
-            const fontSize = parseFloat(window.getComputedStyle(project, null).getPropertyValue("font-size"));
-            const conversionFactor = valueInPx / fontSize;
-            const valueInEm = conversionFactor * (fontSize || 16);
-        
-            options.style.left = valueInEm
-            console.log(window.getComputedStyle(options).getPropertyValue('left'));
-            
-
-          })
+            options.style.left = project.getBoundingClientRect().height * 3.9 + 'px'
+             })
       });
     }
     
     optionsPositioning()
    
     //Удаление проекта
-
     function removeProject() {
       let removeBtns = document.querySelectorAll('.remove__btn')
     
       for (let i = 0; i < removeBtns.length; i++) {
         removeBtns[i].addEventListener('click', () => {
-         
           removeBtns[i].parentNode.previousElementSibling.remove()
           removeBtns[i].parentNode.remove()
           projectIdsArray[0] = projectIdsArray[0] - 1
@@ -112,7 +95,23 @@ document.addEventListener('DOMContentLoaded', function() {
   
     removeProject();  
 
+    // Переименование проекта
+    function renameProject() {
+      let renameBtns = document.querySelectorAll('.rename__btn')
 
+      for(let i = 0; i < renameBtns.length; i++) {
+        renameBtns[i].addEventListener('click', () => {
+          let projectInListName = renameBtns[i].parentElement.previousElementSibling.querySelector('.project__inList__name')
+          projectInListName.innerHTML = '<input type="text" id="myInput">'
+          let projectsOptions = renameBtns[i].parentElement
+          hideVisibleElements(projectsOptions)
+          
+
+        })
+      }
+    }
+
+    renameProject()
 
 
 
