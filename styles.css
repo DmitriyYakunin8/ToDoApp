@@ -185,7 +185,6 @@
   width: 1.4em;
   border-radius: 0.3em;
   background-color: white;
-  
 }
 
 .project__inList__name {
@@ -232,7 +231,12 @@
   cursor: pointer;
 }
 
-
+.projects__logo {
+  position: absolute;
+  width: 10em;
+  height: 5em;
+  border: 1px solid black;
+}
 
 .team__members {
   display: flex;

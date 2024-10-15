@@ -48,13 +48,14 @@ document.addEventListener('DOMContentLoaded', function() {
       optionsPositioning()
       removeProject() 
       renameProject()
+      changeProjectLogo()
       })
     }
 
     addNewProjectFunc()
     
     // Опции проекта
-      function projectsOptions() {
+    function projectsOptions() {
       let optionsBtns = document.querySelectorAll('.project__options__btn')
 
       for(let i = 0; i < optionsBtns.length; i++) {
@@ -102,18 +103,37 @@ document.addEventListener('DOMContentLoaded', function() {
       for(let i = 0; i < renameBtns.length; i++) {
         renameBtns[i].addEventListener('click', () => {
           let projectInListName = renameBtns[i].parentElement.previousElementSibling.querySelector('.project__inList__name')
-          projectInListName.innerHTML = '<input type="text" id="myInput">'
+          projectInListName.innerHTML = `<input type="text" id="project__${i + 1}__name">`
           let projectsOptions = renameBtns[i].parentElement
           hideVisibleElements(projectsOptions)
-          
-
+                    
+          let input = document.querySelector(`#project__${i + 1}__name`)
+          input.style.backgroundColor = window.getComputedStyle(renameBtns[i]).backgroundColor
+          input.style.color = window.getComputedStyle(renameBtns[i].parentElement.previousElementSibling.querySelector('.project__inList__name')).color;
+          input.focus()
+                   
+          input.addEventListener('blur', () => {
+            projectInListName.innerHTML = input.value;
+          })
         })
       }
     }
 
     renameProject()
 
+    // Изменение логотипа проекта
+    function changeProjectLogo() {
+      let projectsLogo = document.querySelector('.projects__logo')
+      let projectsLogoWidth = parseFloat(window.getComputedStyle(projectsLogo).width);
+      let projectsLogoHeight = parseFloat(window.getComputedStyle(projectsLogo).height);
+      projectsLogo.style.left = document.documentElement.clientWidth / 2 - projectsLogoWidth / 2 + 'px'
+      projectsLogo.style.top = document.documentElement.clientHeight / 2 - projectsLogoHeight / 2 + 'px'
 
+
+
+    }
+
+    changeProjectLogo()
 
 
 
