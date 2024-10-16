@@ -177,7 +177,7 @@
   height: 2.5em;
   width: 15em;
   margin-bottom: 0.2em;
-  z-index: 998;
+  z-index: 1;
 }
 
 #project__logo {
@@ -212,11 +212,9 @@
 .project__options {
   position: absolute;
   top: 0%; /* Начальная позиция - после родительского элемента */
- 
- 
   width: 5.5em;
   height: 3.8em;
-  z-index: 999;
+  z-index: 2;
   border: 1px solid black;
   border-radius: 0.3em;
   display: flex;
@@ -235,7 +233,28 @@
   position: absolute;
   width: 10em;
   height: 5em;
-  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.3em;
+  background-color: blue;
+  color: white;
+  filter: drop-shadow(0 0 0.5rem black); 
+}
+
+#project__logo__preview {
+  margin: 0.2em;
+  margin-bottom: 0.7em;
+  width: 2em;
+  height: 2em;
+  border-radius: 0.3em;
+  background-color: white;
+  cursor: pointer;
+}
+
+.projects__logo__text {
+  margin-top: 0.3em;
 }
 
 .team__members {
