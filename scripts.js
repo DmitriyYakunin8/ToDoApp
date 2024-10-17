@@ -146,12 +146,15 @@ document.addEventListener('DOMContentLoaded', function() {
     function focusOnElement(elem) {
       if(elem.classList.contains('visibility__hidden') == false) {
         elem.style.zIndex = 999;
-        const allElementsExcepOne = document.querySelectorAll(`*`)
-        for(let i = 0; i < allElementsExcepOne.length; i++) {
-          allElementsExcepOne[i].style.backgroundColor = 'black'
-          elem.id.style.backgroundColor = 'blue'
-        }
+        // const allElementsExcepOne = document.querySelectorAll(`*:no([id = ${elem.id}])`)
+        // for(let i = 0; i < allElementsExcepOne.length; i++) {
+        //   // allElementsExcepOne[i].style.backgroundColor = 'black'
+        //   elem.id.style.backgroundColor = 'blue'
+        // }
         
+        let lol = document.querySelector('.aside:not(.projects__logo__images)')
+        lol.style.filter = 'blur(5px)';
+        // 
         
       
         
