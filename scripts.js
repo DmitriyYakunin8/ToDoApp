@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
       removeProject() 
       renameProject()
       changeProjectLogo()
+      focusOnElement(document.querySelector('.projects__logo'))
       })
     }
 
@@ -135,8 +136,13 @@ document.addEventListener('DOMContentLoaded', function() {
         changeLogoBtns[i].addEventListener('click', () => {
           hideVisibleElements(projectsLogo)
           hideVisibleElements(changeLogoBtns[i].parentElement)
+          focusOnElement(document.querySelector('.projects__logo'))
+          console.log(document.querySelector('.projects__logo').classList);
         })
       }
+      
+      
+      
     }
 
     changeProjectLogo()
@@ -144,24 +150,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Фокус на элементе
     function focusOnElement(elem) {
+      let projectsLogo = document.querySelector('.content:not(.projects__logo):not(#project__logo__preview):not(.projects__logo__text):not(.project__logo__images)')
+
       if(elem.classList.contains('visibility__hidden') == false) {
         elem.style.zIndex = 999;
-        // const allElementsExcepOne = document.querySelectorAll(`*:no([id = ${elem.id}])`)
-        // for(let i = 0; i < allElementsExcepOne.length; i++) {
-        //   // allElementsExcepOne[i].style.backgroundColor = 'black'
-        //   elem.id.style.backgroundColor = 'blue'
-        // }
-        
-        let lol = document.querySelector('.aside:not(.projects__logo__images)')
-        lol.style.filter = 'blur(5px)';
-        // 
-        
-      
-        
-      }
+        projectsLogo.style.filter = 'blur(5px)';
+        }
     }
     
-    focusOnElement(document.querySelector('.projects__logo'))
+    
 
 
 
