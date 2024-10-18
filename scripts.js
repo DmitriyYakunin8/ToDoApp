@@ -136,8 +136,8 @@ document.addEventListener('DOMContentLoaded', function() {
         changeLogoBtns[i].addEventListener('click', () => {
           hideVisibleElements(projectsLogo)
           hideVisibleElements(changeLogoBtns[i].parentElement)
-          focusOnElement(document.querySelector('.projects__logo'))
-          console.log(document.querySelector('.projects__logo').classList);
+          // focusOnElement(document.querySelector('.projects__logo'))
+          // console.log(document.querySelector('.projects__logo').classList);
         })
       }
       
@@ -149,17 +149,52 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // Фокус на элементе
-    function focusOnElement(elem) {
-      let projectsLogo = document.querySelector('.content:not(.projects__logo):not(#project__logo__preview):not(.projects__logo__text):not(.project__logo__images)')
+    // function focusOnElement(elem) {
+    //   let projectsLogo = document.querySelector('.content:not(.projects__logo):not(.project__logo__preview):not(.projects__logo__text):not(.project__logo__images)')
 
-      if(elem.classList.contains('visibility__hidden') == false) {
-        elem.style.zIndex = 999;
-        projectsLogo.style.filter = 'blur(5px)';
+    //   if(elem.classList.contains('visibility__hidden') == false) {
+    //     elem.style.zIndex = 999;
+    //     projectsLogo.style.filter = 'blur(5px)';
+    //     }
+    // }
+    
+     function focusOnElement(hiddenElem) {
+      // let projectsLogo = document.querySelector('.content:not(.projects__logo):not(.project__logo__preview):not(.projects__logo__text):not(.project__logo__images)')
+
+      let htmlText = "document.querySelector('.content:not("
+
+      // for(let i = 0; i < focusElems.length; i++) {
+      //   if (i < focusElems.length - 1) {
+      //     htmlText += `${focusElems[i]}):not(`
+      //   }
+      //   else {
+      //     htmlText += `${focusElems[i]})`
+      //   }
+      // }
+
+      
+      
+      let elem = document.querySelector(`${hiddenElem}`)
+      // Костыль, работает только по первому классу, исправить в будущем
+      if(elem.children) {
+        htmlText += `${elem.classList[0]}):not(`
+        for(let i = 0; i < elem.children.length; i++) {
+          htmlText += `${elem.children[i].className}):not(`
         }
-    }
-    
-    
+      }
+      
+      console.log(htmlText);
+      
 
+      
+
+      // if(hiddenElem.classList.contains('visibility__hidden') == false) {
+      //   hiddenElem.style.zIndex = 999;
+      //   projectsLogo.style.filter = 'blur(5px)';
+      //   }
+    }
+
+      focusOnElement('.projects__logo')
 
 
 
