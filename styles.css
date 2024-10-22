@@ -185,7 +185,7 @@
   z-index: 1;
 }
 
-#project__logo {
+.project__logo__img {
   margin-left: 0.6em;
   width: 1.4em;
   border-radius: 0.3em;
@@ -207,7 +207,7 @@
   z-index: 1;
 }
 
-#project__options__btn__img {
+.project__options__btn__img {
   filter: brightness(100%);
   width: 0.2em;
   margin-right: 0.4em;
@@ -248,7 +248,7 @@
   
 }
 
-#project__logo__preview {
+.project__logo__preview {
   margin: 0.2em;
   margin-bottom: 0.7em;
   width: 2em;

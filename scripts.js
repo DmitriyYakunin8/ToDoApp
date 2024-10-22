@@ -3,13 +3,33 @@ document.addEventListener('DOMContentLoaded', function() {
     const projectsBtn = document.querySelector('.projects__btn');
     const asideMenu = document.querySelector('.aside__menu');
 
-    // Функция для скрытия и появления элемента 
+    // Cкрытие и появление элемента 
     //(ДОБАВИТЬ ОТРИСОВКУ HTML С ПОМОЩЬЮ 2 АРГУМЕНТА)
     const hideVisibleElements = (elem) => {
       elem.classList.contains('visibility__hidden') ? elem.classList.remove('visibility__hidden') : elem.classList.add('visibility__hidden');
     };
 
     projectsBtn.addEventListener('click', () => hideVisibleElements(asideMenu));
+
+    // Поиск всех первых классов внутри элемента через рекурсию
+    function findAllElemClasses(elem) {
+      let classes = new Set();
+
+      function recursion(element) {
+        if (element.children.length == 0 && element.classList.length) {
+         classes.add(element.classList[0]);
+        }
+        else {
+          classes.add(element.classList[0]);
+          for (let i = 0; i < element.children.length; i++) {
+            recursion(element.children[i]);
+          }
+        }
+      }
+      recursion(elem);
+
+      return classes;
+    }
 
     // НАСТРОЙКА ASIDE MENU
     // Добавление проекта
@@ -37,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                   <img id="project__options__btn__img" src="/icons/projectOptionsBtn.png" alt="icon">
                               </div>
                           </div>
-                          <div class="visibility__hidden project__options">
+                          <div class="project__options visibility__hidden">
                             <div class="project__option remove__btn">Remove</div>
                             <div class="project__option rename__btn">Rename</div>
                             <div class="project__option change__logo__btn">Change logo</div>
@@ -49,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
       removeProject() 
       renameProject()
       changeProjectLogo()
-      focusOnElement(document.querySelector('.projects__logo'))
+      // focusOnElement(document.querySelector('.projects__logo'))
       })
     }
 
@@ -140,61 +160,49 @@ document.addEventListener('DOMContentLoaded', function() {
           // console.log(document.querySelector('.projects__logo').classList);
         })
       }
-      
-      
-      
-    }
+     }
 
     changeProjectLogo()
 
-
-    // Фокус на элементе
-    // function focusOnElement(elem) {
-    //   let projectsLogo = document.querySelector('.content:not(.projects__logo):not(.project__logo__preview):not(.projects__logo__text):not(.project__logo__images)')
-
-    //   if(elem.classList.contains('visibility__hidden') == false) {
-    //     elem.style.zIndex = 999;
-    //     projectsLogo.style.filter = 'blur(5px)';
-    //     }
-    // }
-    
-     function focusOnElement(hiddenElem) {
-      // let projectsLogo = document.querySelector('.content:not(.projects__logo):not(.project__logo__preview):not(.projects__logo__text):not(.project__logo__images)')
-
+    // Фокус на элементе   
+    function focusOnElement(elem) {
       let htmlText = "document.querySelector('.content:not("
-
-      // for(let i = 0; i < focusElems.length; i++) {
-      //   if (i < focusElems.length - 1) {
-      //     htmlText += `${focusElems[i]}):not(`
-      //   }
-      //   else {
-      //     htmlText += `${focusElems[i]})`
-      //   }
-      // }
-
-      
-      
       let elem = document.querySelector(`${hiddenElem}`)
-      // Костыль, работает только по первому классу, исправить в будущем
-      if(elem.children) {
+      
+    
+      if (elem.children) {
         htmlText += `${elem.classList[0]}):not(`
-        for(let i = 0; i < elem.children.length; i++) {
+        for (let i = 0; i < elem.children.length; i++) {
           htmlText += `${elem.children[i].className}):not(`
+          if (i = elem.children.length - 1) {
+            htmlText += `${elem.children[i].className})`
+          }
         }
       }
-      
-      console.log(htmlText);
-      
-
-      
-
-      // if(hiddenElem.classList.contains('visibility__hidden') == false) {
-      //   hiddenElem.style.zIndex = 999;
-      //   projectsLogo.style.filter = 'blur(5px)';
-      //   }
     }
+    
+    focusOnElement(document.querySelector('.projects__logo'))
+ 
 
-      focusOnElement('.projects__logo')
+
+    
+    
+    
+    
+    
+   
+    
+
+
+
+
+
+
+
+
+
+
+
 
 
 
