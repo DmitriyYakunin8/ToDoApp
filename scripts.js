@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Поиск всех первых классов внутри элемента через рекурсию
     function findAllElemClasses(elem) {
+      let arrOfClasses = []
       let classes = new Set();
 
       function recursion(element) {
@@ -28,7 +29,11 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       recursion(elem);
 
-      return classes;
+      for (let value of classes) {
+        arrOfClasses.push(value)
+      }
+
+      return arrOfClasses;
     }
 
     // НАСТРОЙКА ASIDE MENU
@@ -166,25 +171,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Фокус на элементе   
     function focusOnElement(elem) {
-      let htmlText = "document.querySelector('.content:not("
-      let elem = document.querySelector(`${hiddenElem}`)
-      
-    
-      if (elem.children) {
-        htmlText += `${elem.classList[0]}):not(`
-        for (let i = 0; i < elem.children.length; i++) {
-          htmlText += `${elem.children[i].className}):not(`
-          if (i = elem.children.length - 1) {
-            htmlText += `${elem.children[i].className})`
+      let classes = findAllElemClasses(elem)
+      let string = ".content:not("
+      for (let i = 0; i < classes.length; i++) {
+          if (i < classes.length - 1) {
+            string += `${classes[i]}):not(`
           }
-        }
+          else {
+            string += `${classes[i]}`
+          }
       }
+
+    let elems = document.querySelector(`${string}`)
+    elems.style.filter = 'blur(5px)';
     }
     
     focusOnElement(document.querySelector('.projects__logo'))
  
-
-
     
     
     
