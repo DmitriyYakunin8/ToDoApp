@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function() {
         changeLogoBtns[i].addEventListener('click', () => {
           hideVisibleElements(projectsLogo)
           hideVisibleElements(changeLogoBtns[i].parentElement)
-          // focusOnElement(document.querySelector('.projects__logo'))
+          focusOnElement(document.querySelector('.projects__logo'))
           // console.log(document.querySelector('.projects__logo').classList);
         })
       }
@@ -170,45 +170,35 @@ document.addEventListener('DOMContentLoaded', function() {
     changeProjectLogo()
 
     // Фокус на элементе   
-    function focusOnElement(elem) {
-      let classes = findAllElemClasses(elem)
-      let string = ".content:not("
-      for (let i = 0; i < classes.length; i++) {
-          if (i < classes.length - 1) {
-            string += `${classes[i]}):not(`
-          }
-          else {
-            string += `${classes[i]}`
-          }
-      }
+    // function focusOnElement(elem) {
+    //   let classes = findAllElemClasses(elem)
+    //   let string = ".content:not("
+    //   for (let i = 0; i < classes.length; i++) {
+    //       if (i < classes.length - 1) {
+    //         string += `${classes[i]}):not(`
+    //       }
+    //       else {
+    //         string += `${classes[i]}`
+    //       }
+    //   }
 
-    let elems = document.querySelector(`${string}`)
-    elems.style.filter = 'blur(5px)';
-    }
+    // let elems = document.querySelector(`${string}`)
+    // elems.style.filter = 'blur(5px)';
+    // }
     
-    focusOnElement(document.querySelector('.projects__logo'))
+    // focusOnElement(document.querySelector('.projects__logo'))
  
-    
-    
-    
-    
-    
-   
-    
+    function focusOnElement(elem) {
+      let content = document.querySelector('.content')
+      let newElem = elem.cloneNode(true)
+      elem.remove()
+      content.after(newElem)
+      content.style.filter = 'blur(5px)'
+    }
 
+  focusOnElement(document.querySelector('.projects__logo'))
 
-
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 
 
