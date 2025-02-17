@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     projectsBtn.addEventListener('click', () => hideVisibleElements(asideMenu));
 
-    // Поиск всех первых классов внутри элемента через рекурсию
+    // Поиск всех первых классов внутри элемента при помощи рекурсии
     function findAllElemClasses(elem) {
       let arrOfClasses = []
       let classes = new Set();
@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function() {
       let newElem = elem.cloneNode(true);
       elem.remove();
       content.after(newElem);
-      content.style.filter = 'blur(5px)';
+      content.style.filter = 'blur(2px)';
       hideVisibleElements(elem);
     }
 
@@ -180,17 +180,17 @@ document.addEventListener('DOMContentLoaded', function() {
           hideVisibleElements(changeLogoBtns[i].parentElement);
           focusOnElement(document.querySelector('.projects__logo'));
         
-          //Закрыть элемент с выбором лого после клика за его пределами или выборе лого
+          //Заменить лого
           let logoImgs = document.querySelectorAll('.project__logo__preview')
-            for (let j = 0; j < logoImgs.length; j++) {
-              logoImgs[j].addEventListener('click', () => {
-              let logo = changeLogoBtns[i].parentElement.previousElementSibling.querySelector('.project__logo__img')
-              console.log(logoImgs[i].src);
-              console.log(logo);
-              logo.src = logoImgs[i].src
-              focusAtAll(document.querySelector('.projects__logo'))
-              })
-            }
+          for (let j = 0; j < logoImgs.length; j++) {
+            logoImgs[j].addEventListener('click', () => {
+            let logo = changeLogoBtns[i].parentElement.previousElementSibling.querySelector('.project__logo__img')
+            logo.src = logoImgs[j].src
+            focusAtAll(document.querySelector('.projects__logo'))
+            
+            })
+            
+          }
         })
       
       }
