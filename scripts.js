@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Изменение логотипа проекта
     function changeProjectLogo() {
       // Центровка элемента с выбором лого посередине окна
-      let projectsLogo = document.querySelector('.projects__logo');
+      let projectsLogo = document.querySelector('.projects__logo__elem');
       let projectsLogoWidth = parseFloat(window.getComputedStyle(projectsLogo).width);
       let projectsLogoHeight = parseFloat(window.getComputedStyle(projectsLogo).height);
       projectsLogo.style.left = document.documentElement.clientWidth / 2 - projectsLogoWidth / 2 + 'px';
@@ -178,18 +178,41 @@ document.addEventListener('DOMContentLoaded', function() {
         changeLogoBtns[i].addEventListener('click', () => {
           hideVisibleElements(projectsLogo);
           hideVisibleElements(changeLogoBtns[i].parentElement);
-          focusOnElement(document.querySelector('.projects__logo'));
-        
+          // focusOnElement(document.querySelector('.projects__logo'));
+          let lastLogoImg = [];
           //Заменить лого
           let logoImgs = document.querySelectorAll('.project__logo__preview')
           for (let j = 0; j < logoImgs.length; j++) {
             logoImgs[j].addEventListener('click', () => {
             let logo = changeLogoBtns[i].parentElement.previousElementSibling.querySelector('.project__logo__img')
+            
             logo.src = logoImgs[j].src
-            focusAtAll(document.querySelector('.projects__logo'))
             
-            })
+            // focusAtAll(document.querySelector('.projects__logo'))
+            let projectLogoAccept = document.querySelector('.project__logo__accept')
+            projectLogoAccept.classList.remove('visibility__hidden')
+
+          let okBtn = document.querySelector('.logo__ok')
+          okBtn.addEventListener('click', () => {
+            projectsLogo.classList.add('visibility__hidden')
+            projectLogoAccept.classList.add('visibility__hidden')
+            lastLogoImg.push(logo.src)
+            console.log(lastLogoImg);
             
+          })
+
+          let noBtn = document.querySelector('.logo__not__ok')
+          noBtn.addEventListener('click', () => {
+            console.log(lastLogoImg);
+             
+             
+            
+            projectsLogo.classList.add('visibility__hidden')
+            projectLogoAccept.classList.add('visibility__hidden')
+          })
+
+          })
+
           }
         })
       
