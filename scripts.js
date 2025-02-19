@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // НАСТРОЙКА ASIDE MENU
+    
     // Добавление проекта
     let projectIdsArray = [1];
 
@@ -79,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     addNewProjectFunc();
     
-    // Опции проекта
+    // Отображение/скрытие опций проекта
     function projectsOptions() {
       let optionsBtns = document.querySelectorAll('.project__options__btn');
 
@@ -156,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
       hideVisibleElements(elem);
     }
 
-    // Возврат фокуса на весь докумен
+    // Возврат фокуса на весь документ
     function focusAtAll(elem) {
       let content = document.querySelector('.content');
       content.style.filter = 'blur(0px)';
@@ -174,44 +175,40 @@ document.addEventListener('DOMContentLoaded', function() {
       
       //Убрать/добавить невидимость и фокус на элементе с выбором лого
       let changeLogoBtns = document.querySelectorAll('.change__logo__btn');
+      let lastLogoImg = new Set();
       for(let i = 0; i < changeLogoBtns.length; i++) {
         changeLogoBtns[i].addEventListener('click', () => {
           hideVisibleElements(projectsLogo);
           hideVisibleElements(changeLogoBtns[i].parentElement);
-          // focusOnElement(document.querySelector('.projects__logo'));
-          let lastLogoImg = [];
+          // для фокусировки: focusOnElement(document.querySelector('.projects__logo'));
+          
           //Заменить лого
           let logoImgs = document.querySelectorAll('.project__logo__preview')
           for (let j = 0; j < logoImgs.length; j++) {
             logoImgs[j].addEventListener('click', () => {
-            let logo = changeLogoBtns[i].parentElement.previousElementSibling.querySelector('.project__logo__img')
-            
-            logo.src = logoImgs[j].src
-            
-            // focusAtAll(document.querySelector('.projects__logo'))
-            let projectLogoAccept = document.querySelector('.project__logo__accept')
-            projectLogoAccept.classList.remove('visibility__hidden')
+              let logo = changeLogoBtns[i].parentElement.previousElementSibling.querySelector('.project__logo__img')
+              logo.src = logoImgs[j].src
+              
+              // для фокусировки: focusAtAll(document.querySelector('.projects__logo'))
+              let projectLogoAccept = document.querySelector('.project__logo__accept')
+              projectLogoAccept.classList.remove('visibility__hidden')
 
-          let okBtn = document.querySelector('.logo__ok')
-          okBtn.addEventListener('click', () => {
-            projectsLogo.classList.add('visibility__hidden')
-            projectLogoAccept.classList.add('visibility__hidden')
-            lastLogoImg.push(logo.src)
-            console.log(lastLogoImg);
-            
-          })
+              let okBtn = document.querySelector('.logo__ok')
+              okBtn.addEventListener('click', () => {
+                projectsLogo.classList.add('visibility__hidden')
+                projectLogoAccept.classList.add('visibility__hidden')
+                lastLogoImg.add(logo.src)
+                console.log(lastLogoImg);
+              })
+              // Если выбрал
+              let noBtn = document.querySelector('.logo__not__ok')
+              noBtn.addEventListener('click', () => {
+                logo.src = Array.from(lastLogoImg).pop();
+                projectsLogo.classList.add('visibility__hidden')
+                projectLogoAccept.classList.add('visibility__hidden')
+              })
 
-          let noBtn = document.querySelector('.logo__not__ok')
-          noBtn.addEventListener('click', () => {
-            console.log(lastLogoImg);
-             
-             
-            
-            projectsLogo.classList.add('visibility__hidden')
-            projectLogoAccept.classList.add('visibility__hidden')
-          })
-
-          })
+            })
 
           }
         })
