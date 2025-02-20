@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
       elem.classList.contains('visibility__hidden') ? elem.classList.remove('visibility__hidden') : elem.classList.add('visibility__hidden');
     };
 
+    // Клик по любому элементу кроме elem скрывает ранее открытый элемент
+
     projectsBtn.addEventListener('click', () => hideVisibleElements(asideMenu));
 
     // Поиск всех первых классов внутри элемента при помощи рекурсии
@@ -81,31 +83,31 @@ document.addEventListener('DOMContentLoaded', function() {
     addNewProjectFunc();
     
     // Отображение/скрытие опций проекта
-    function projectsOptions() {
-      let optionsBtns = document.querySelectorAll('.project__options__btn');
+    function visibleOptions(cssClass) {
+      let optionsBtns = document.querySelectorAll(cssClass);
 
       for(let i = 0; i < optionsBtns.length; i++) {
         optionsBtns[i].addEventListener('click', () => hideVisibleElements(optionsBtns[i].parentElement.nextElementSibling));
       }
     };
 
-    projectsOptions();
+    visibleOptions('.project__options__btn');
 
     // Позиционирование опций относительно проекта
-    function optionsPositioning() {
-      let projects = document.querySelectorAll('.project');
+    function optionsPositioning(cssClass, top, left) {
+      let projects = document.querySelectorAll(cssClass);
 
       projects.forEach((project) => {
           project.addEventListener('mouseenter', () => {
            let options = project.nextElementSibling;
           
-            options.style.top = project.getBoundingClientRect().top + options.getBoundingClientRect().height / 3 + 'px';
-            options.style.left = project.getBoundingClientRect().height * 3.9 + 'px';
+            options.style.top = project.getBoundingClientRect().top + options.getBoundingClientRect().height / top + 'px';
+            options.style.left = project.getBoundingClientRect().height * left + 'px';
              })
       });
     }
     
-    optionsPositioning();
+    optionsPositioning('.project', 3, 3.9);
    
     //Удаление проекта
     function removeProject() {
@@ -224,8 +226,11 @@ document.addEventListener('DOMContentLoaded', function() {
     changeProjectLogo();
 
     
- 
+     // Отображение/скрытие опций учетной записи
+     visibleOptions('.member__options__btn');
     
+     // Позиционирование опций относительно учетной записи
+     optionsPositioning('.member', 2.1, 3.25);
 
 
  

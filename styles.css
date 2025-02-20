@@ -303,23 +303,7 @@
   cursor: pointer;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* Учетные записи в Aside Menu */
 .team__members {
   display: flex;
   flex-direction: column;
@@ -327,6 +311,89 @@
   min-height: 35%;
   border: 1px solid black;
 }
+
+
+.members__list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5%;
+}
+
+.member {
+  background: rgb(255, 255, 255);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.4em;
+  cursor: pointer;
+  height: 2.5em;
+  width: 15em;
+  margin-bottom: 0.2em;
+  z-index: 1;
+  border: 2px solid rgb(216, 216, 216);
+}
+
+.member__logo__img {
+  margin-left: 0.6em;
+  width: 1.4em;
+  border-radius: 2em;
+  background-color: white;
+}
+
+.member__inList__name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 13em;
+  max-width: 13em;
+  color: rgb(0, 0, 0);
+  margin-left: 0.5em;
+  white-space: nowrap;
+}
+
+.member__options__btn {
+  padding: 0.5em;
+  z-index: 1;
+}
+
+.member__options__btn__img {
+  filter: brightness(100%);
+  width: 1em;
+  margin-right: 0.4em;
+  margin-top: 0.1em;
+}
+
+.member__options {
+  position: absolute;
+  width: 8em;
+  height: 3.8em;
+  z-index: 2;
+  border: 1px solid rgb(216, 216, 216);
+  border-radius: 0.3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+}
+
+.member__option {
+  margin: 0.1em;
+  cursor: pointer;
+}
+
+.member__option:hover {
+  color: #123E66;
+}
+
+.project__option:hover {
+  color: #123E66;
+}
+
+
+
+
 
 .total__hours {
   display: flex;
