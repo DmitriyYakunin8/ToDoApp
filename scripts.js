@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
       elem.classList.contains('visibility__hidden') ? elem.classList.remove('visibility__hidden') : elem.classList.add('visibility__hidden');
     };
 
-    // Клик по любому элементу кроме elem скрывает ранее открытый элемент
+   
 
     projectsBtn.addEventListener('click', () => hideVisibleElements(asideMenu));
 
@@ -84,14 +84,29 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Отображение/скрытие опций проекта
     function visibleOptions(cssClass) {
-      let optionsBtns = document.querySelectorAll(cssClass);
+      let optionsBtns = document.querySelectorAll(`.${cssClass}`);
 
       for(let i = 0; i < optionsBtns.length; i++) {
         optionsBtns[i].addEventListener('click', () => hideVisibleElements(optionsBtns[i].parentElement.nextElementSibling));
       }
+
+      // Клик по любому элементу, кроме cssClass, скрывает ранее открытый элемент
+      const allElems = document.querySelectorAll('*')
+      const filteredElems = []
+
+      for (let i = 0; i < allElems.length; i++) {
+        if (!allElems[i].classList.contains(cssClass)) {
+          allElems[i].addEventListener('click', () => console.log('click'))
+        }
+      }
+      
+      
+      
+      
+      
     };
 
-    visibleOptions('.project__options__btn');
+    visibleOptions('project__options__btn');
 
     // Позиционирование опций относительно проекта
     function optionsPositioning(cssClass, top, left) {
@@ -227,7 +242,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
      // Отображение/скрытие опций учетной записи
-     visibleOptions('.member__options__btn');
+     visibleOptions('member__options__btn');
     
      // Позиционирование опций относительно учетной записи
      optionsPositioning('.member', 2.1, 3.25);
