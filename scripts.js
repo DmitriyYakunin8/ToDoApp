@@ -83,35 +83,38 @@ document.addEventListener('DOMContentLoaded', function() {
   addNewProjectFunc();
   
   // Отображение/скрытие опций проекта
-  function visibleOptions(cssClass) {
-    let optionsBtns = document.querySelectorAll(`.${cssClass}`);
+  function visibleOptions(btnId, elemId) {
+    const btn = document.getElementById(btnId)
+    const elem = document.getElementById(elemId)
 
-    for(let i = 0; i < optionsBtns.length; i++) {
-      optionsBtns[i].addEventListener('click', () => hideVisibleElements(optionsBtns[i].parentElement.nextElementSibling));
-      
-    }
+    btn.addEventListener('click', function(event) {
+      event.stopPropagation()
 
-    hideElemByClickOnDocument(optionsBtns[0].parentElement.nextElementSibling)
-    console.log(optionsBtns[0].parentElement.nextElementSibling);
-    
-    
-  };
+      const computedVisibility = window.getComputedStyle(elem).visibility;
 
-  visibleOptions('project__options__btn');
+      if (computedVisibility === "hidden") {
+            elem.style.visibility = "visible";
+                       
+        } else {
+            elem.style.visibility = "hidden";
+        }
+    });
 
-
-  // Скрытие элемента при клике за его пределами
-  function hideElemByClickOnDocument(elem) {
-    if (!elem.classList.contains('.visibility__hidden')) {
-      let allElems = document.querySelectorAll('*')
-      for (let i = 0; i < allElems.length; i++) {
-        allElems[i].addEventListener('click', () => {
-          if (allElems[i] !== elem) elem.classList.add('.visibility__hidden');
-          
-        })
+    document.addEventListener('click', function(event) {
+      if (elem.style.visibility === 'visible' && !elem.contains(event.target) && event.target !== btn) {
+        elem.style.visibility = 'hidden'
       }
-    }
+
+    })
   }
+
+
+
+  visibleOptions('project__btn', 'project__options')
+
+
+
+
 
 
 
@@ -258,8 +261,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-   // Отображение/скрытие опций учетной записи
-   visibleOptions('member__options__btn');
+  //  // Отображение/скрытие опций учетной записи
+  //  visibleOptions('member__options__btn');
   
    // Позиционирование опций относительно учетной записи
    optionsPositioning('.member', 2.1, 3.25);
