@@ -65,63 +65,65 @@ document.addEventListener('DOMContentLoaded', function() {
                                 <img class="project__options__btn__img" src="/icons/projectOptionsBtn.png" alt="icon">
                             </div>
                         </div>
-                        <div class="project__options visibility__hidden">
+                        <div class="project__options" id="project__options">
                           <div class="project__option remove__btn">Remove</div>
                           <div class="project__option rename__btn">Rename</div>
                           <div class="project__option change__logo__btn">Change logo</div>
                         </div>`
 
+    
+    
     // Обязательные функции для возможности управления вновь добавленными проектами
-    projectsOptions();
     optionsPositioning();
     removeProject();
     renameProject();
     changeProjectLogo();
+    visibleOptions('project')
     })
   }
 
   addNewProjectFunc();
   
   // Отображение/скрытие опций проекта
-  function visibleOptions(btnId, elemId) {
-    const btn = document.getElementById(btnId)
-    const elem = document.getElementById(elemId)
+  function visibleOptions(parentClass) {
+    // Поиск всех нужных элементов
+    let allElems = document.querySelectorAll(`.${parentClass}`)
 
-    btn.addEventListener('click', function(event) {
-      event.stopPropagation()
+    for (let i = 0; i < allElems.length; i++) {
+      // Отображение/скрытие опций
+      let btn = allElems[i].querySelector('#project__btn')
+      let elem = allElems[i].nextElementSibling
+      console.log(allElems);
+      
+      console.log(btn);
+      console.log(elem);
+      
 
-      const computedVisibility = window.getComputedStyle(elem).visibility;
-
-      if (computedVisibility === "hidden") {
-            elem.style.visibility = "visible";
-                       
-        } else {
-            elem.style.visibility = "hidden";
-        }
-    });
-
-    document.addEventListener('click', function(event) {
-      if (elem.style.visibility === 'visible' && !elem.contains(event.target) && event.target !== btn) {
-        elem.style.visibility = 'hidden'
-      }
-
-    })
+      
+        btn.addEventListener('click', function(event) {
+          // event.stopPropagation()
+                
+          const computedVisibility = window.getComputedStyle(elem).visibility;
+  
+          if (computedVisibility === "hidden") {
+                elem.style.visibility = "visible";
+                          
+            } else {
+                elem.style.visibility = "hidden";
+            }
+        });
+  
+        document.addEventListener('click', function(event) {
+          if (elem.style.visibility === 'visible' && !elem.contains(event.target) && event.target !== btn) {
+            elem.style.visibility = 'hidden'
+          }
+  
+        })
+      
+    }
   }
 
-
-
-  visibleOptions('project__btn', 'project__options')
-
-
-
-
-
-
-
-
-
-
-
+  visibleOptions('project')
 
 
   // Позиционирование опций относительно проекта
@@ -240,32 +242,36 @@ document.addEventListener('DOMContentLoaded', function() {
               projectsLogo.classList.add('visibility__hidden')
               projectLogoAccept.classList.add('visibility__hidden')
             })
-
           })
-
         }
       })
-    
     }
-
-    
-    
-    //Замена лого на новое
-
-   }
+  }
 
   changeProjectLogo();
-
-  
-
-
-
-
-  //  // Отображение/скрытие опций учетной записи
-  //  visibleOptions('member__options__btn');
   
    // Позиционирование опций относительно учетной записи
    optionsPositioning('.member', 2.1, 3.25);
+
+
+//Учетные записи 
+// Отображение опций учетной записи
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
