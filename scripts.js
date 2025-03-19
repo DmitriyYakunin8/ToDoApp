@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
       let last = projectIdsArray.at(-1);
       projectIdsArray.push(last + 1);
       projectIdsArray.shift();
-      console.log(projectIdsArray[0]);
+   
                 
       project__list.innerHTML += `
                         <div class="project" id="project__${projectIdsArray[0]}">
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <div class="project__inList__name">
                                 Default project name
                             </div>
-                            <div class="project__options__btn">
+                            <div class="project__options__btn" id="project__btn">
                                 <img class="project__options__btn__img" src="/icons/projectOptionsBtn.png" alt="icon">
                             </div>
                         </div>
@@ -74,34 +74,28 @@ document.addEventListener('DOMContentLoaded', function() {
     
     
     // Обязательные функции для возможности управления вновь добавленными проектами
-    optionsPositioning();
+    optionsPositioning('.project', 3, 3.9);
     removeProject();
     renameProject();
     changeProjectLogo();
-    visibleOptions('project')
+    visibleOptions('project', '#project__btn')
     })
   }
 
   addNewProjectFunc();
   
   // Отображение/скрытие опций проекта
-  function visibleOptions(parentClass) {
+  function visibleOptions(parentClass, optionsBtn) {
     // Поиск всех нужных элементов
     let allElems = document.querySelectorAll(`.${parentClass}`)
 
     for (let i = 0; i < allElems.length; i++) {
       // Отображение/скрытие опций
-      let btn = allElems[i].querySelector('#project__btn')
+      let btn = allElems[i].querySelector(optionsBtn)
       let elem = allElems[i].nextElementSibling
-      console.log(allElems);
-      
-      console.log(btn);
-      console.log(elem);
-      
 
-      
         btn.addEventListener('click', function(event) {
-          // event.stopPropagation()
+          event.stopPropagation()
                 
           const computedVisibility = window.getComputedStyle(elem).visibility;
   
@@ -117,13 +111,11 @@ document.addEventListener('DOMContentLoaded', function() {
           if (elem.style.visibility === 'visible' && !elem.contains(event.target) && event.target !== btn) {
             elem.style.visibility = 'hidden'
           }
-  
         })
-      
     }
   }
 
-  visibleOptions('project')
+  visibleOptions('project', '#project__btn')
 
 
   // Позиционирование опций относительно проекта
@@ -233,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function() {
               projectsLogo.classList.add('visibility__hidden')
               projectLogoAccept.classList.add('visibility__hidden')
               lastLogoImg.add(logo.src)
-              console.log(lastLogoImg);
+              
             })
             // Если выбрал
             let noBtn = document.querySelector('.logo__not__ok')
@@ -256,7 +248,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //Учетные записи 
 // Отображение опций учетной записи
-
+visibleOptions('member', '.member__options')
 
 
 
