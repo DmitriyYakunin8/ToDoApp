@@ -329,7 +329,7 @@
   align-items: center;
   border-radius: 0.4em;
   cursor: pointer;
-  height: 2.5em;
+  height: 3em;
   width: 15em;
   margin-bottom: 0.2em;
   z-index: 1;
@@ -349,7 +349,6 @@
   width: 13em;
   max-width: 13em;
   color: rgb(0, 0, 0);
-  margin-left: 0.5em;
   white-space: nowrap;
 }
 
@@ -387,6 +386,33 @@
 .member__option:hover {
   color: #123E66;
 }
+
+.member__data {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  padding: 0 1em 0 1em;
+}
+
+.member__auth__time {
+  padding-top: 0.2em;
+  color: rgb(119, 119, 119);
+}
+
+.member__auth_status {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.member__status__logo {
+  width: 1em;
+  border-radius: 2em;
+  color: rgb(226, 8, 8);
+}
+
+
+
 
 .project__option:hover {
   color: #123E66;

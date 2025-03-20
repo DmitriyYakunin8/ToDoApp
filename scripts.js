@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //Учетные записи 
 // Отображение опций учетной записи
-visibleOptions('member', '.member__options')
+visibleOptions('member', '#member__options__btn2')
 
 
 
