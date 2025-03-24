@@ -83,7 +83,7 @@
                                     <div class="member__inList__name">Steve Mcconeli</div>
                                     <div class="member__auth_status">
                                         <div class="member__status__logo">
-                                            <img class="member__status__logo" src="/icons/Members/member-status-logo.png" alt="member-status-logo">
+                                            <img class="member__status__logo" src="/icons/Members/member-status-logo-offline.png" alt="member-status-logo">
                                         </div>
                                         <div class="member__auth__time">Online - test time</div>
                                     </div>
@@ -116,27 +116,54 @@
                  </div>
                
             </div>
+            <div class="projects__logo__elem visibility__hidden">
+                <div class="projects__logo " id="projects__logo__id">
+                    <h2 class="projects__logo__text">Choose project logo</h2>
+                    <div class="project__logo__images">
+                        <img src="/icons/altProjectLogo1.png" alt="#" class="project__logo__preview">
+                        <img src="/icons/altProjectLogo2.png" alt="#" class="project__logo__preview">
+                        <img src="/icons/altProjectLogo3.png" alt="#" class="project__logo__preview">
+                    </div>
+                </div>
+                <div class="project__logo__accept visibility__hidden">
+                    Logo is OK?
+                <div class="accept__logo">
+                    <div class="logo__ok logo__btn">Yes</div>
+                    <div class="logo__not__ok logo__btn">No</div>
+                </div>
+                    
+                </div>
+    
+            </div>    
         </aside>
-        <div class="projects__logo__elem visibility__hidden">
-            <div class="projects__logo " id="projects__logo__id">
-                <h2 class="projects__logo__text">Choose project logo</h2>
-                <div class="project__logo__images">
-                    <img src="/icons/altProjectLogo1.png" alt="#" class="project__logo__preview">
-                    <img src="/icons/altProjectLogo2.png" alt="#" class="project__logo__preview">
-                    <img src="/icons/altProjectLogo3.png" alt="#" class="project__logo__preview">
+        
+        <div class="main__content">
+            <div class="header__panel">
+                <div class="search">
+                    <form action='/search' method='get'>
+                        <img src="/icons/loupe.png" alt="Search">
+                        <input type="text" name="query" placeholder="Search">
+                    </form>    
+                </div>
+                <div class="all__settings">
+                    <div class="settings">
+                        <img src="/icons/settings.png" alt="">
+                    </div>
+                    <div class="notifications">
+                        <img src="/icons/notification.png" alt="">
+                    </div>
+                    <div class="profile">
+                        <class class="profile__logo">
+                            <img src="/icons/Members/user-icon.png" class="profile__img">
+                        </class>
+                        <class class="profile__name">Default user name</class>
+                    </div>
                 </div>
             </div>
-            <div class="project__logo__accept visibility__hidden">
-                Logo is OK?
-            <div class="accept__logo">
-                <div class="logo__ok logo__btn">Yes</div>
-                <div class="logo__not__ok logo__btn">No</div>
-            </div>
-                
-            </div>
+            <div class="project__control__panel"></div>
+            <div class="tasks__panel"></div>
 
         </div>
-        
     </div>
     
     
