@@ -136,15 +136,18 @@
     
             </div>    
         </aside>
-        
+        <!-- Основной контент -->
         <div class="main__content">
+
+            <!-- Поиск -->
             <div class="header__panel">
                 <div class="search">
                     <form action='/search' method='get'>
-                        <img src="/icons/loupe.png" alt="Search">
+                        <img src="/icons/loupe.png" alt="Search" class="loupe">
                         <input type="text" name="query" placeholder="Search">
                     </form>    
                 </div>
+                <!-- Все настройки -->
                 <div class="all__settings">
                     <div class="settings">
                         <img src="/icons/settings.png" alt="">
@@ -160,7 +163,31 @@
                     </div>
                 </div>
             </div>
-            <div class="project__control__panel"></div>
+
+            <!-- Текущий проект -->
+            <div class="this__project">
+               <div class="project__progress">
+                    <img src="/icons/defaultProjectLogo.png" class="project__progress__logo">
+                    <div class="project__progress__info">
+                        <div class="project__progress__name">Default project name</div>
+                        <div class="project__progress__status">
+                            <div class="project__progress__bar"></div>
+                            <!-- Div для отображения полосы прогресса (width 15% = 100% заполнения шкалы) -->
+                            <div class="project__progress__bar__complete"></div>
+                            <div class="project__progress__text">0% complete</div>
+                        </div>
+                    </div>
+               </div>
+             <div class="project__members">
+                <div class="all__members">
+                    <img src="/icons/Members/user-icon.png" alt="" class="member__1">
+                    <img src="/icons/Members/user-icon.png" alt="" class="member__2">
+                </div>
+                <div class="add__member"></div>
+             </div>   
+            </div>
+
+
             <div class="tasks__panel"></div>
 
         </div>
