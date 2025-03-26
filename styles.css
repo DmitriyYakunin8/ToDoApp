@@ -609,11 +609,15 @@
 .member__1 {
   width: 25%;
   height: 75%;
+  z-index: 999;
 }
 
 .member__2 {
   width: 25%;
   height: 75%;
+  z-index: 998;
+  position: relative;
+  left: 10px;
 }
 
 
