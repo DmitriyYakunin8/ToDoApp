@@ -489,7 +489,7 @@
 
  
 .all__settings {
-  width: 15%;
+  width: 18%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -590,17 +590,15 @@
 .project__members {
   display: flex;
   flex-direction: row;
-  width: 30%;
+  width: 35%;
   height: 100%;
   align-items: center;
-  justify-content:baseline;
-  border: 1px solid black;
+  justify-content:space-between;
 }
 
 .all__members {
   width: 55%;
   height: 100%;
-  border: 1px solid black;
   display: flex;
   justify-content: right;
   align-items: center;
@@ -609,19 +607,64 @@
 .member__1 {
   width: 25%;
   height: 75%;
-  z-index: 999;
+  z-index: 1;
+  position: relative;
+  left: 35%;
 }
 
 .member__2 {
   width: 25%;
   height: 75%;
-  z-index: 998;
+  z-index: 2;
   position: relative;
-  left: 10px;
+  left: 28%;
 }
 
+.member__3 {
+  width: 25%;
+  height: 75%;
+  z-index: 3;
+  position: relative;
+  left: 21%
+}
 
+.member__4 {
+  width: 25%;
+  height: 75%;
+  z-index: 3;
+  position: relative;
+  left: 14%
+}
 
+.member__5 {
+  width: 25%;
+  height: 75%;
+  z-index: 3;
+  position: relative;
+  left: 7%
+}
+
+.many__members {
+  width: 25%;
+  height: 75%;
+  z-index: 3;
+  position: relative;
+  right: 2%;
+}
+
+.add__member {
+  border: 1px solid blue;
+  width: 28%;
+  height: 40%;
+  margin-right: 15%;
+  border-radius: 0.6em;
+  background: blue;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
 
 
 
