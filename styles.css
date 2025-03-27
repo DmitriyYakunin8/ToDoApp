@@ -666,27 +666,88 @@
   cursor: pointer;
 }
 
-
-
-
-
-
-
- .tasks__panel {
+.tasks__panel {
   border: 1px solid black;
   height: 80%;
- }
+}
 
+.tasks__panel__header {
+  border: 1px solid black;
+  width: 100%;
+  height: 12.5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
+.tasks__menu {
+  
+  height: 100%;
+  width: 20%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: end;
+  padding: 0 2% 0 2%;
+}
 
+.all__tasks, .tasks__questions {
+  
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.tasks__wrapper__class {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+}
 
+.choose__line {
+  width: 50%;
+  height: 2%;
+  background: rgb(105, 105, 211);
+  position: relative;
+  /* visibility: hidden; */
+}
 
+.tasks__view {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0% 2% 0% 2%;
+}
 
+.tasks__view__display {
+  margin: 10% 0% 2% 2.5%;
+  width: 20%;
+  height: 45%;
+  border-radius: 0.75em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background: #a1c8ec;
+}
 
+.tasks__view__display:hover {
+  background: #a1c8ec;
+}
 
-
-
+.tasks__view__icon {
+  max-width: 40%;
+  max-height: 55%;
+  margin: 0% 5% 2% 0%
+}
 
 
 
