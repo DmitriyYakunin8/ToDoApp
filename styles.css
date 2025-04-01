@@ -736,7 +736,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  background: #a1c8ec;
+  /* background: #a1c8ec; */
 }
 
 .tasks__view__display:hover {
@@ -749,7 +749,56 @@
   margin: 0% 5% 2% 0%
 }
 
+.tasks {
+  background: #e7e7e7;
+  height: 87.5%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
 
+.tasks__column {
+  width: 25%;
+  height: 100%;
+  border: 1px solid black;
+}
+
+.tasks__bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 5em;
+  border: 1px solid black;
+  align-items: center;
+}
+
+.tasks__status {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 50%;
+  max-width: 50%;
+  height: 100%;
+  margin-left: 5%;
+  justify-content: start;
+}
+
+.tasks__bar__icon {
+  height: 20%;
+}
+
+.tasks__status__name {
+  margin: 0% 10% 0% 3%;
+}
+
+.tasks__options__img {
+  height: 37%;
+  margin-right: 5%;
+  cursor: pointer;
+}
 
 
 
