@@ -240,10 +240,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  changeProjectLogo();
+changeProjectLogo();
   
-   // Позиционирование опций относительно учетной записи
-   optionsPositioning('.member', 2.1, 3.25);
+// Позиционирование опций относительно учетной записи
+optionsPositioning('.member', 2.1, 3.25);
 
 
 //Учетные записи 
@@ -251,11 +251,33 @@ document.addEventListener('DOMContentLoaded', function() {
 visibleOptions('member', '#member__options__btn2')
 
 
+// Отображение учетных записей в таске
+function taskMembersIcons () {
+  let taskMembers = document.querySelectorAll('.task__members')
 
+  for (let i = 0; i <= taskMembers.length; i++) {
+    if (taskMembers[i].children.length == 1) {
+      taskMembers[i].children[0].style.left = '0%';
+    }
+    else if (taskMembers[i].children.length == 2) {
+      taskMembers[i].children[0].style.left = '10%';
+      taskMembers[i].children[1].style.left = '0%';
+    }
+    else if (taskMembers[i].children.length == 3) {
+      taskMembers[i].children[0].style.left = '20%';
+      taskMembers[i].children[1].style.left = '10%';
+      taskMembers[i].children[2].style.left = '0%';
+    }
+    else if (taskMembers[i].children.length == 4) {
+      taskMembers[i].children[0].style.left = '30%';
+      taskMembers[i].children[1].style.left = '20%';
+      taskMembers[i].children[2].style.left = '10%';
+      taskMembers[i].children[3].style.left = '0%';
+    }
+  }
+}
 
-
-
-
+taskMembersIcons()
 
 
 
