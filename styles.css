@@ -130,14 +130,23 @@
   padding: 5%;
 }
 
-.aside__panel__main__btn:hover,
+/* .aside__panel__btn:hover,
 .aside__panel__footer__btn:hover {
   background: #c55151
+} */
+
+.aside__panel__btn, .aside__panel__footer__btn {
+  background: white;
 }
 
-.aside__panel__main__btn {
-  min-height: 10%;
+.aside__panel__btn__img {
+  width: 45%;
 }
+
+.aside__panel__exit__btn__img {
+  width: 65%;
+}
+
 
 .aside__panel__footer {
   display: flex;
