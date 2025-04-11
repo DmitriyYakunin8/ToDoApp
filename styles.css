@@ -431,11 +431,56 @@
 .total__hours {
   display: flex;
   flex-direction: column;
-  padding: 5%;
+  justify-content: space-between;
   height: 25%;
   border-left: 1px solid #ececec;
   border-top: 1px solid #ececec;
+  padding: 7.5%;
 }
+
+.hours__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 15%;
+  border-radius: 0.4em;
+  border: 1px solid rgb(216, 216, 216);
+  height: 65%;
+  padding: 5%;
+}
+
+.total__hours__text, .hours__dynamics__flw {
+  color: rgb(119, 119, 119);
+}
+
+.hours__dynamics {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hours__dynamics__img {
+  width: 15%;
+  position: relative;
+  bottom: 10%;
+
+}
+
+.hours__dynamics__info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 68%;
+  margin-right: 12%;
+}
+
+.hours__dynamics__percentage {
+  color: #23b98c;
+  font-weight: 600;
+}
+
+
 
 .new__project {
   display: flex;
@@ -443,6 +488,20 @@
   padding: 5%;
   height: 10%;
   border: 1px solid #ececec;
+  display: flex;
+  align-items: center;
+}
+
+.add__new__project {
+  border: 1px dashed #375dfe;
+  width: 95%;
+  height: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #375dfe;
+  border-radius: 0.4em;
+
 }
 
 /* MAIN CONTENT */

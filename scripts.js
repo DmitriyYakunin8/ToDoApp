@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function addNewProjectFunc() {
     let project__list = document.querySelector('.project__list');
-    let addNewProject = document.getElementById('add__new__project');
+    let addNewProject = document.querySelector('.add__new__project');
 
     addNewProject.addEventListener('click', () => {
       let last = projectIdsArray.at(-1);
@@ -256,24 +256,30 @@ function taskMembersIcons () {
   let taskMembers = document.querySelectorAll('.task__members')
 
   for (let i = 0; i <= taskMembers.length; i++) {
-    if (taskMembers[i].children.length == 1) {
-      taskMembers[i].children[0].style.left = '0%';
+    if (taskMembers[i]) {
+      if (taskMembers[i].children.length == 1) {
+        taskMembers[i].children[0].style.left = '0%';
+      }
+      else if (taskMembers[i].children.length == 2) {
+        taskMembers[i].children[0].style.left = '10%';
+        taskMembers[i].children[1].style.left = '0%';
+      }
+      else if (taskMembers[i].children.length == 3) {
+        taskMembers[i].children[0].style.left = '20%';
+        taskMembers[i].children[1].style.left = '10%';
+        taskMembers[i].children[2].style.left = '0%';
+      }
+      else if (taskMembers[i].children.length == 4) {
+        taskMembers[i].children[0].style.left = '30%';
+        taskMembers[i].children[1].style.left = '20%';
+        taskMembers[i].children[2].style.left = '10%';
+        taskMembers[i].children[3].style.left = '0%';
+      }
     }
-    else if (taskMembers[i].children.length == 2) {
-      taskMembers[i].children[0].style.left = '10%';
-      taskMembers[i].children[1].style.left = '0%';
-    }
-    else if (taskMembers[i].children.length == 3) {
-      taskMembers[i].children[0].style.left = '20%';
-      taskMembers[i].children[1].style.left = '10%';
-      taskMembers[i].children[2].style.left = '0%';
-    }
-    else if (taskMembers[i].children.length == 4) {
-      taskMembers[i].children[0].style.left = '30%';
-      taskMembers[i].children[1].style.left = '20%';
-      taskMembers[i].children[2].style.left = '10%';
-      taskMembers[i].children[3].style.left = '0%';
-    }
+
+
+
+    
   }
 }
 
