@@ -283,11 +283,19 @@ function taskMembersIcons () {
   }
 }
 
-taskMembersIcons()
+taskMembersIcons();
 
 
+function addNewProjectMenu() {
+  // Центровка элемента посередине окна
+  let projectsLogo = document.querySelector('.add__new__prj__form');
+  let projectsLogoWidth = parseFloat(window.getComputedStyle(projectsLogo).width);
+  let projectsLogoHeight = parseFloat(window.getComputedStyle(projectsLogo).height);
+  projectsLogo.style.left = document.documentElement.clientWidth / 2 - projectsLogoWidth / 2 + 'px';
+  projectsLogo.style.top = document.documentElement.clientHeight / 2 - projectsLogoHeight / 2 + 'px';
+}
 
-
+addNewProjectMenu();
 
 
 
