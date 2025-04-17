@@ -285,21 +285,28 @@ function taskMembersIcons () {
 
 taskMembersIcons();
 
-
-function addNewProjectMenu() {
-  // Центровка элемента посередине окна
-  let projectsLogo = document.querySelector('.add__new__prj__form');
-  let projectsLogoWidth = parseFloat(window.getComputedStyle(projectsLogo).width);
-  let projectsLogoHeight = parseFloat(window.getComputedStyle(projectsLogo).height);
-  projectsLogo.style.left = document.documentElement.clientWidth / 2 - projectsLogoWidth / 2 + 'px';
-  projectsLogo.style.top = document.documentElement.clientHeight / 2 - projectsLogoHeight / 2 + 'px';
+//Центровка элемента посередине окна
+function centeringAnElem(elem) {
+  let mainElem = document.querySelector(elem);
+  let mainElemLogoWidth = parseFloat(window.getComputedStyle(mainElem).width);
+  let mainElemLogoHeight = parseFloat(window.getComputedStyle(mainElem).height);
+  mainElem.style.left = document.documentElement.clientWidth / 2 - mainElemLogoWidth / 2 + 'px';
+  mainElem.style.top = document.documentElement.clientHeight / 2 - mainElemLogoHeight / 2 + 'px';
 }
 
-addNewProjectMenu();
+centeringAnElem('.add__new__prj__form');
+centeringAnElem('.choose__prj__logo');
 
+// Выбор лого у нового проекта
+function chooseNewPrjLogo() {
+  let btn = document.querySelector('.choose__logo__btn')
+  let prjLogoWindow = document.querySelector('.choose__prj__logo')
+  btn.addEventListener('click', () => {
+    prjLogoWindow.style.visibility = 'visible'
+  })
+}
 
-
-
+chooseNewPrjLogo()
 
 
 
