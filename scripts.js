@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function addNewProjectFunc() {
     let project__list = document.querySelector('.project__list');
-    let addNewProject = document.querySelector('.add__new__project');
+    let addNewProject = document.querySelector('.confirm__btn');
 
     addNewProject.addEventListener('click', () => {
       let last = projectIdsArray.at(-1);
@@ -307,6 +307,52 @@ function chooseNewPrjLogo() {
 }
 
 chooseNewPrjLogo()
+
+//Кнопка "Cancel"
+function cancelElem(clickElem, closeElem) {
+  let element = document.querySelector(clickElem)
+  let closingElem = document.querySelector(closeElem)
+
+  element.addEventListener('click', () => {
+    closingElem.style.visibility = 'hidden'
+  })
+}
+
+cancelElem('.cancel__logo__btn', '.choose__prj__logo')
+cancelElem('.cancel__btn', '.add__new__prj__form')
+
+// Отображение формы для создания проекта
+function openNewPrjForm() {
+  let addNewPrjBtn = document.querySelector('.add__new__project')
+  let newPrjForm = document.querySelector('.add__new__prj__form')
+
+  addNewPrjBtn.addEventListener('click', () => {
+    newPrjForm.style.visibility = 'visible'
+  })
+}
+
+openNewPrjForm();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

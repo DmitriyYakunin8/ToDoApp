@@ -501,6 +501,7 @@
   justify-content: center;
   color: #375dfe;
   border-radius: 0.4em;
+  cursor: pointer;
 
 }
 
@@ -1098,6 +1099,7 @@
   color: white;
   border-radius: 1em;
   align-self: center;
+  visibility: hidden;
 }
 
 .add__new__prj__text {
@@ -1137,7 +1139,7 @@
   margin: 0 2.5% 4% 2.5%;
 }
 
-.confirm__btn, .cancel__btn {
+.confirm__btn, .cancel__btn, .confirm__logo__btn, .cancel__logo__btn {
   background-color: #e7e7e7;
   height: 2em;
   width: 4.5em;
